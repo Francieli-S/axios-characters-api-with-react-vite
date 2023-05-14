@@ -14,15 +14,6 @@ export default function CreateChar() {
     const body = { name: name, occupation: occupation, weapon: weapon, debt: debt }
     console.log('BODY', body)
 
-    /*axios.post('https://ih-crud-api.herokuapp.com/characters', body).then((response) => {
-      setName('')
-      setOccupation('')
-      setWeapon('')
-      setDebt(false)
-
-      navigate('/')
-    })*/
-
     axios
       .post('https://ih-crud-api.herokuapp.com/characters', body)
       .then(() => {

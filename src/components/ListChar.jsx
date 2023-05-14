@@ -28,10 +28,17 @@ export default function ListChar() {
         return (
           <div key={character.id}>
             <Link to={`/${character.id}`}>{character.name}</Link>
+            <div>
+              <button className="list-btn" onClick={() => deleteCharacter(character.id)}>
+                Delete
+              </button>
+              <button className="list-btn" onClick={() => updateCharacter(character.id)}>
+                Update
+              </button>
+            </div>
           </div>
         )
       })}
-      {/* <DetailsChar characters={characters} /> */}
     </div>
   )
 }
