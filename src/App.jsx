@@ -1,14 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
+import ListChar from './components/ListChar'
+import DetailsChar from './components/DetailsChar'
+import CreateChar from './components/CreateChar'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1>AAAhhhhh</h1>
+      <Navbar />
+      <ListChar />
+      <DetailsChar />
+      <CreateChar />
+      {/* <Routes>
+        <Route path="/" element={<ListChar />} />
+        <Route path="/:characterId" element={<DetailsChar />} />
+        <Route path="/characters" element={<CreateChar />} />
+      </Routes> */}
     </>
   )
 }
