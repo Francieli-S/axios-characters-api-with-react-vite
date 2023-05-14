@@ -9,14 +9,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <ListChar />
-      <DetailsChar />
-      <CreateChar />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<ListChar />} />
-        <Route path="/:characterId" element={<DetailsChar />} />
         <Route path="/characters" element={<CreateChar />} />
-      </Routes> */}
+        <Route path="/:characterId" element={<DetailsChar />} />
+      </Routes>
     </>
   )
 }

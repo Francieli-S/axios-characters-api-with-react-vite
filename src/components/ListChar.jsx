@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-// import './App.css'
 import axios from 'axios'
-import DetailsChar from './DetailsChar'
 
 export default function ListChar() {
   const [characters, setCharacters] = useState([])
@@ -33,7 +31,7 @@ export default function ListChar() {
           </div>
         )
       })}
-      <DetailsChar characters={characters} />
+      {/* <DetailsChar characters={characters} /> */}
     </div>
   )
 }

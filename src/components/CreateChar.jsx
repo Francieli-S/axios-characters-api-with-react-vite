@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 export default function CreateChar() {
@@ -6,32 +7,41 @@ export default function CreateChar() {
   const [occupation, setOccupation] = useState('')
   const [weapon, setWeapon] = useState('')
   const [debt, setDebt] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const body = { name: name, occupation: occupation, weapon: weapon, debt: debt }
-    console.log(body)
+    console.log('BODY', body)
 
-    const postData = async () => {
-      try {
-        const response = await axios.post('https://ih-crud-api.herokuapp.com/characters', body)
-        if (response) {
-          setName('')
-          setOccupation('')
-          setWeapon('')
-          setDebt(false)
-        }
-      } catch (error) {
+    /*axios.post('https://ih-crud-api.herokuapp.com/characters', body).then((response) => {
+      setName('')
+      setOccupation('')
+      setWeapon('')
+      setDebt(false)
+
+      navigate('/')
+    })*/
+
+    axios
+      .post('https://ih-crud-api.herokuapp.com/characters', body)
+      .then(() => {
+        setName('')
+        setOccupation('')
+        setWeapon('')
+        setDebt(false)
+
+        navigate('/')
+      })
+      .catch((error) => {
         console.log(error)
-      }
-    }
+      })
   }
 
   return (
     <div>
       <h3>Add New Characters</h3>
 
-      {/*    ADD   */}
       <form onSubmit={handleSubmit}>
         <label>Name</label>
         <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} />

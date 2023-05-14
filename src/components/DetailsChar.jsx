@@ -1,14 +1,19 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
-export default function DetailsChar({ characters }) {
+export default function DetailsChar() {
   const [characterDetails, setCharacterDetails] = useState([])
   const { characterId } = useParams()
 
-  //   useEffect(() => {
-  //     const characterToShow = characters.filter((character) => character.id === +characterId)
-  //     setCharacterDetails(characterToShow.length > 0 ? characterToShow[0] : undefined)
-  //   }, [characterId, characters])
+  useEffect(() => {
+    axios
+      .get(`https://ih-crud-api.herokuapp.com/characters/${characterId}`)
+      .then((response) => {
+        setCharacterDetails(response.data)
+      })
+      .catch((error) => console.log(error))
+  }, [characterId])
 
   return (
     <div>

@@ -6,7 +6,7 @@ export default function Navbar() {
       <NavLink to="/">
         <button>Home</button>
       </NavLink>
-      <NavLink to="/characters/create">
+      <NavLink to="/characters">
         <button>Creat Character</button>
       </NavLink>
     </nav>
